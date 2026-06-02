@@ -9,7 +9,7 @@ Your goal is to fully automate the development, bug fixing, and feature deployme
 
 ```
 [Your Chat Interface] 
-       │ (Edits code via GitHub API / TypingMind Integration)
+       │ (Edits code via GitHub API / Integration)
        ▼
 [GitHub Repository] (njh2008/discord-auto-seller-bot)
        │ (Automatic Webhook Trigger)
@@ -47,16 +47,21 @@ When the user asks you to add a feature, fix a bug, or change settings:
 
 1.  **Analyze**: Read `bot.py` and understand the current implementation.
 2.  **Write Code**: Write clean, robust, and fully-featured Python code. Avoid placeholders or truncated code blocks.
-3.  **Commit directly to `main` branch**:
-    *   If you are running in **TypingMind** with GitHub Integration enabled, use the GitHub tool to overwrite `bot.py` (and `requirements.txt` if you added new libraries) and commit directly.
-    *   If you do not have direct write access, provide the complete, updated file and instruct the user to copy-paste it into GitHub or use GitHub Web Editor.
+3.  **Commit directly to `main` branch**: Use your GitHub integration to commit directly.
 4.  **Verify**: Railway will automatically detect the commit, build, and redeploy the bot within 1-2 minutes.
 
 ---
 
-## 📋 Coding Rules & Guidelines
+## 📋 Coding Rules & Guidelines (Karpathy & Video Automation Standards)
 
-1.  **Never Use Ephemeral Variables for State**: All state (stock, users, orders, gacha config) must be saved in the `db` dictionary and synchronized using `save_db()`.
-2.  **Error Handling**: Wrap Discord commands and API calls in `try-except` blocks to prevent the bot from crashing.
-3.  **Discord.py v2+ Syntax**: Use modern `discord.ext.commands` or Slash Commands.
-4.  **Security**: Never hardcode tokens or sensitive keys. Use `os.getenv('DISCORD_TOKEN')` and other environment variables.
+1.  **Andrej Karpathy Guidelines**:
+    *   **Think before coding**: Ask for clarification if requirements are ambiguous.
+    *   **Keep it simple**: Do not over-engineer. Prefer concise, readable code.
+    *   **Precision**: Only modify requested parts. Do not touch surrounding code unless necessary.
+    *   **Goal-oriented**: Always verify progress with tests or dry runs.
+
+2.  **Automation Standards**:
+    *   **Never Use Ephemeral Variables for State**: All state (stock, users, orders, gacha config) must be saved in the `db` dictionary and synchronized using `save_db()`.
+    *   **Error Handling**: Wrap Discord commands and API calls in `try-except` blocks to prevent the bot from crashing.
+    *   **Discord.py v2+ Syntax**: Use modern `discord.ext.commands` or Slash Commands.
+    *   **Security**: Never hardcode tokens or sensitive keys. Use `os.getenv('DISCORD_TOKEN')` and other environment variables.
